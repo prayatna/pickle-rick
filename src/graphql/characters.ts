@@ -17,3 +17,21 @@ export const GET_CHARACTERS = gql`
     }
   }
 `;
+
+export interface Characters {
+  info: CharactersQueryInfo;
+  results: Character[];
+}
+
+export interface CharactersQueryInfo {
+  next: number | null;
+  prev: number | null;
+}
+
+export interface Character {
+  id: string;
+  name: string;
+  image: string;
+  species: string;
+  status: string;
+}

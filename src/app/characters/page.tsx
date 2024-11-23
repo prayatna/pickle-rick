@@ -1,4 +1,5 @@
-import { GET_CHARACTERS } from "@/graphql/characters";
+import CharacterCard from "@/components/CharacterCard/CharacterCard";
+import { Character, GET_CHARACTERS } from "@/graphql/characters";
 import { getClient } from "@/lib/client";
 
 export default async function Characters() {
@@ -6,8 +7,10 @@ export default async function Characters() {
     query: GET_CHARACTERS,
     variables: { page: 1 },
   });
-  console.log(data.characters.results);
-  console.log(data.characters.info);
+  // console.log(data.characters.results);
+  // console.log(data.characters.info);
 
-  return <div>Characters</div>;
+  return data.characters.results.map((c: Character) => (
+    <CharacterCard key={c.id} characterInfo={c} />
+  ));
 }
