@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./Header.module.css";
-
+// TODO: only show links based on signup data
 export default function Header() {
   return (
     <header>
