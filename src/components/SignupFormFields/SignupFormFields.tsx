@@ -12,8 +12,13 @@ export default function SignupFormFields({
   initialData,
   onHandleClick,
 }: SignupFormFieldsProps) {
-  const [username, setUsername] = React.useState(initialData?.username ?? "");
-  const [jobTitle, setJobTitle] = React.useState(initialData?.jobTitle ?? "");
+  const [username, setUsername] = React.useState(initialData?.username || "");
+  const [jobTitle, setJobTitle] = React.useState(initialData?.jobTitle || "");
+  const [actionText, setActionText] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    setActionText(initialData ? "Save" : "Sign Up");
+  }, [initialData]);
 
   function handleClick() {
     onHandleClick({ username, jobTitle });
@@ -41,7 +46,7 @@ export default function SignupFormFields({
           />
         </Field>
         <Button size="md" onClick={handleClick}>
-          Sign Up
+          {actionText}
         </Button>
       </VStack>
     </Box>
