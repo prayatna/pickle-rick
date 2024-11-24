@@ -1,36 +1,38 @@
+All things Rick and Morty
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## About
 
-First, run the development server:
+The project consists of Home page, Character page, Profile page and Signup page.
+Home page is public. Character page is only accessible once you signup. The Signup data is stored in a cookie for now. This is used to read the data and show on the Profile page. Through the profile page, the information can be updated which in turn updates the cookie.
+[WIP: still some jankiness when going from profile page to character page - yet to be fixed]
+
+The Character page lists out all the character from Rick and Morty series (using the public graphQL API). Each card has image and brief info about the character. This page is paginated, and results 20 item per page. Every page increment can be accessed by clicking the specific page number or changing the url to `/characters?page=[your_page_number]`
+[WIP: next button is broken and yet to be fixed]
+
+Clicking each character item will open a modal dialog. When doing so, it makes another API call to get information about an individual character(character ID is passed on the query). The modal shows the image and some information from the api response.
+
+There are two apollo clients one for server component (to get all character list) and one for client (individual character details). This was necessary as getting individual character details depended on user event.
+
+This project does not contain any test coverage. This was my first time using NextJS, GraphQL, Apollo client, ChakraUI so has been a challenging little excercise :)
+
+## Local Development
+
+First install local dependencies
+
+```
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployed on Vercel free tier
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+You can check the project live on https://pickle-rick-ashen.vercel.app
