@@ -6,6 +6,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 The project consists of Home page, Character page, Profile page and Signup page.
 Home page is public. Character page is only accessible once you signup. The Signup data is stored in a cookie for now. This is used to read the data and show on the Profile page. Through the profile page, the information can be updated which in turn updates the cookie.
+Cookie name stored as `signup-data`
 [WIP: still some jankiness when going from profile page to character page - yet to be fixed]
 
 The Character page lists out all the character from Rick and Morty series (using the public graphQL API). Each card has image and brief info about the character. This page is paginated, and results 20 item per page. Every page increment can be accessed by clicking the specific page number or changing the url to `/characters?page=[your_page_number]`
