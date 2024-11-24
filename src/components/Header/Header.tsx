@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import styles from "./Header.module.css";
 // TODO: only show links based on signup data
 export default function Header() {
   return (
