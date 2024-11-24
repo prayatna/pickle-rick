@@ -24,8 +24,10 @@ export interface Characters {
 }
 
 export interface CharactersQueryInfo {
-  next: number | null;
-  prev: number | null;
+  next: string | null;
+  prev: string | null;
+  count: number;
+  pages: number;
 }
 
 export interface Character {
