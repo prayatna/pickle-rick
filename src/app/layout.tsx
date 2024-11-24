@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import { Provider } from "@/components/ui/provider";
+import { ApolloWrapper } from "./ApolloWrapper";
 
 export const metadata: Metadata = {
   title: "Pickle Rick",
@@ -16,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <Provider>
-          <Header />
-          {children}
-        </Provider>
+        <ApolloWrapper>
+          <Provider>
+            <Header />
+            {children}
+          </Provider>
+        </ApolloWrapper>
       </body>
     </html>
   );
