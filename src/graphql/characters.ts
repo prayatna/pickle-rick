@@ -6,6 +6,8 @@ export const GET_CHARACTERS = gql`
       info {
         next
         prev
+        count
+        pages
       }
       results {
         id
