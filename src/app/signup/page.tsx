@@ -18,8 +18,7 @@ export default function Signup() {
     Cookie.set(SIGNUP_DATA_COOKIE_NAME, JSON.stringify(data), {
       expires: 7,
     });
-
-    router.push("/characters");
+    router.push("/characters?page=1");
   }
 
   return <SignupFormFields onHandleClick={handleClick} />;
