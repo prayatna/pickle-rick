@@ -46,7 +46,6 @@ export default function CardDialog({ characterId }: { characterId: string }) {
         </Button>
       </DialogTrigger>
       <CharacterDetailContent characterDetails={data?.character} />
-      <DialogCloseTrigger />
     </DialogRoot>
   );
 }
@@ -93,6 +92,7 @@ function CharacterDetailContent({
           <Button variant="outline">Close</Button>
         </DialogActionTrigger>
       </DialogFooter>
+      <DialogCloseTrigger />
     </DialogContent>
   );
 }
