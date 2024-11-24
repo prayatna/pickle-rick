@@ -1,4 +1,6 @@
 import CharacterCard from "@/components/CharacterCard/CharacterCard";
+import CharacterPagination from "@/components/CharacterPagination/CharacterPagination";
+
 import { Character, Characters, GET_CHARACTERS } from "@/graphql/characters";
 import { getClient } from "@/lib/client";
 import { Box } from "@chakra-ui/react";
@@ -6,6 +8,7 @@ import { Box } from "@chakra-ui/react";
 interface CharactersPageProps {
   searchParams: { page?: string };
 }
+export const dynamic = "force-dynamic";
 
 export default async function CharactersPage({
   searchParams,
@@ -16,17 +19,18 @@ export default async function CharactersPage({
     query: GET_CHARACTERS,
     variables: { page: page },
   });
-  // console.log(data.characters.results);
-  // console.log(data.characters.info);
 
-  const { results, info } = data.characters;
+  const { results, info } = data.characters as Characters;
 
   return (
     <>
       {results.map((c: Character) => (
         <CharacterCard key={c.id} characterInfo={c} />
       ))}
-      <Box>Next;</Box>
+
+      <Box>
+        <CharacterPagination pageInfo={info} />
+      </Box>
     </>
   );
 }
