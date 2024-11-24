@@ -20,6 +20,26 @@ export const GET_CHARACTERS = gql`
   }
 `;
 
+// Get character details by ID
+export const GET_CHARACTER_DETAILS = gql`
+  query GetCharacterDetails($id: ID!) {
+    character(id: $id) {
+      id
+      name
+      image
+      status
+      species
+      gender
+      location {
+        name
+      }
+      episode {
+        name
+      }
+    }
+  }
+`;
+
 export interface Characters {
   info: CharactersQueryInfo;
   results: Character[];
@@ -38,4 +58,21 @@ export interface Character {
   image: string;
   species: string;
   status: string;
+}
+
+export interface CharacterDetail {
+  id: number;
+  name: string;
+  image: string;
+  status: string;
+  species: string;
+  gender: string;
+  location: {
+    name: string | null;
+  };
+  episode: Episode[];
+}
+
+interface Episode {
+  name: string;
 }

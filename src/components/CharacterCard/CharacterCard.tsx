@@ -1,7 +1,8 @@
 import { Card, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { Character } from "@/graphql/characters";
+
+import CardDialog from "../CardDialog/CardDialog";
 
 export default function CharacterCard({
   characterInfo,
@@ -21,9 +22,7 @@ export default function CharacterCard({
         </Text>
       </Card.Body>
       <Card.Footer alignItems={"center"}>
-        <Button size="xs" variant="solid">
-          View
-        </Button>
+        <CardDialog characterId={characterInfo.id} />
       </Card.Footer>
     </Card.Root>
   );
