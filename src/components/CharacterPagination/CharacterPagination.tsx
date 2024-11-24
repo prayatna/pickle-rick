@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/pagination";
 import { CharactersQueryInfo } from "@/graphql/characters";
 
+// TODO: fix pagination next button
 export default function CharacterPagination({
   pageInfo,
 }: {
@@ -21,12 +22,12 @@ export default function CharacterPagination({
       count={pageInfo.count}
       pageSize={20}
       getHref={(p) => {
-        console.log("Current page:", p);
+        // console.log("Current page:", p);
         return `?page=${p}`;
       }}
       page={currentPage}
       onPageChange={(e) => {
-        console.log(e + "on page change");
+        // console.log(e + "on page change");
         setCurrentPage(e.page);
       }}
     >
